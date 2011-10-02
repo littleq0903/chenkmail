@@ -1,0 +1,6 @@
+*.sqlite
+*.pyc
+settings_local.py
+.pydevproject
+.*.swp
+static/*
