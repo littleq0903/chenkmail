@@ -4,17 +4,47 @@
  <meta charset="UTF-8">
  <title>Chenk Mail</title>
  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
- 
+ <script type="text/javascript">
+    google.load('jquery', '1');
+    google.load('jqueryui', '1');
+ </script>
+ <link rel="stylesheet" href="/static/css/base.css" />
+
+ <script type="text/javascript">
+    $(function(){
+            $("#namelist").tabs();
+            });
+ </script>
+
+
 </head>
 <body>
+
     <header>
         <div id="header_inner">
-            <img src="/img/logo.git" alt="Chenk mail logo." />
+            <img id="logo" src="/static/img/logo.gif" alt="Chenk mail logo." />
 
         </div>
+        <div id="header_right">
+            <button>Logout</button>
+        </div>
     </header>
-    <section>
-        <div id="col-left"></div>
+    <section id="content">
+        <div id="col-left">
+            <div id="namelist">
+                <ul>
+                    <li><a href="#tab-1">Receivers</a></li>
+                    <li><a href="#tab-2">Receivers</a></li>
+                    
+                </ul>
+                <div id="tab-1">
+                    <p>hello</p>
+                </div>
+                <div id="tab-2">
+                    <p>hello</p>
+                </div>
+            </div>
+        </div>
         <div id="col-right"></div>
     </section>
     
