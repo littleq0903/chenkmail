@@ -4,6 +4,7 @@ from django.db import models
 # Create your models here.
 
 class AbstractMember(models.Model):
+    id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.EmailField()
@@ -22,10 +23,10 @@ class AbstractMember(models.Model):
         ordering = ['last_name']
 
 
-class Sendor(AbstractMember):
-    class Meta:
-        verbose_name_plural = '寄件人'
+class Professor(AbstractMember):
+    class Meta(AbstractMember.Meta):
+        verbose_name_plural = '老師'
 
-class Receiver(AbstractMember):
-    class Meta:
-        verbose_name_plural = '收件人'
+class TA(AbstractMember):
+    class Meta(AbstractMember.Meta):
+        verbose_name_plural = '助教'

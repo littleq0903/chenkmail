@@ -1,12 +1,12 @@
 from django.contrib import admin
-from namelist.models import Sendor, Receiver
+from namelist.models import Professor, TA
 
 
-class SendorAdmin(admin.ModelAdmin):
+class ProfessorAdmin(admin.ModelAdmin):
     pass
 
-class ReceiverAdmin(admin.ModelAdmin):
+class TAAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(Sendor, SendorAdmin)
-admin.site.register(Receiver, ReceiverAdmin)
+admin.site.register(Professor, ProfessorAdmin)
+admin.site.register(TA, TAAdmin)
