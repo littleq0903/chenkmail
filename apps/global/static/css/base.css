@@ -1,0 +1,42 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+body > * {
+    margin: 0;
+}
+
+
+header {
+    height: 100px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+header > * {
+    float: left;
+}
+
+header #logo {
+    height: 90px; 
+}
+
+header #header_inner {
+    width: 90%;
+}
+
+header #header_right {
+    padding: 30px;
+    height: 100%;
+}
+
+section#content > * {
+    float: left;
+}
+
+section#content #col-left {
+    width: 30%;
+}
+section#content #col-right {
+    width: 70%;
+}
