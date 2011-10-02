@@ -9,9 +9,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'chenkmail.views.home', name='home'),
-    # url(r'^chenkmail/', include('chenkmail.foo.urls')),
     #url(r'^global/', include('chenkmail.apps.global.urls')),
-    #url(r'^mail/', include('chenkmail.apps.mail.urls')),
+    url(r'^mail/', include('chenkmail.apps.mail.urls')),
     
 
     # Uncomment the admin/doc line below to enable admin documentation:
