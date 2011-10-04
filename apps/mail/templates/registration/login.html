@@ -1,0 +1,52 @@
+{% load url from future %}
+
+
+<head>
+{% block head_info %}
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script src="/static/lib/jquery-ui-1.8.16.custom/js/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/static/css/login_form.css" />
+    <link rel="stylesheet" href="/static/lib/google-buttons/styles.css" />
+
+    <script type="text/javascript">
+        $(function(){
+            $("#login").click(function(){
+                    $("#login_form form").submit();
+                    console.log('helo');
+                    });
+        });
+    </script>
+{% endblock %}
+</head>
+
+
+
+<body>
+{% block content %}
+
+
+    <div id="login_form">
+        <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+        {% csrf_token %}
+        <table>
+        <tr>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+        </table>
+        <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+
+        <a id="login" class="google-button">Login</a>
+        {% if form.errors %}
+        
+        <p><span id="error_msg">帳號密碼錯誤。</span></p>
+        {% endif %}
+    </div>
+
+{% endblock %}
+</body>

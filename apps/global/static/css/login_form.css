@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    background-color: #787878;
+}
+
+#login_form {
+    margin: auto;
+    margin-top: 200px;
+    width: 400px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: white;
+}
+#login_form input {
+    border: 1px solid #787878;
+    border-radius: 4px;
+    width: 180px;
+    height: 30px;
+    font-size: 1.2em;
+    font-family: Arial;
+    color: #787878;
+}
+#login_form #error_msg {
+    color: red;
+
+}

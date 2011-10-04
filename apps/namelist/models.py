@@ -10,9 +10,12 @@ class AbstractMember(models.Model):
     email = models.EmailField()
     
     def _get_full_name(self):
-        return "%S%S" % (self.last_name, self.first_name)
-
+        return "%s%s" % (self.last_name, self.first_name)
     full_name = property(_get_full_name)
+
+    def _get_email_name(self):
+        return "%s <%s>"%(self._get_full_name(), self.email)
+    email_name = property(_get_email_name)
 
 
     def __unicode__(self):

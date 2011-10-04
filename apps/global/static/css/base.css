@@ -2,41 +2,91 @@ body {
     padding: 0;
     margin: 0;
 }
-body > * {
-    margin: 0;
-}
-
 
 header {
     height: 100px;
     width: 100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: #CCC;
+    border-bottom: solid 1px #878787;
 }
-
 header > * {
     float: left;
 }
-
 header #logo {
     height: 90px; 
 }
-
 header #header_inner {
     width: 90%;
 }
-
 header #header_right {
-    padding: 30px;
+    padding-top: 30px;
     height: 100%;
 }
 
-section#content > * {
-    float: left;
+header #header_right > * {
+    float: right;
 }
 
-section#content #col-left {
-    width: 30%;
+#content #col-left {
+    float: left;
+    width: 210px;
+    margin: 30px;
+    padding: 25px;
+    overflow: hidden;
 }
-section#content #col-right {
-    width: 70%;
+#content #col-right {
+    float: left;
+    width: 600px;
+    margin: 30px;
+    overflow: hidden;
+}
+#content #namelist .namelist ul{
+    list-style-type: none;
+}
+#content .namelist ul li {
+    display: inline;
+    margin-bottom: 5px;
+    padding: 0px;
+}
+#content .namelist ul li.selected > a {
+    background: rgba(0,0,255,0.8);
+    color: white;
+}
+
+#compose {
+    width: 500px;
+}
+#compose > * {
+    margin: 20px;
+}
+#compose input,textarea {
+    border-radius: 4px;
+    border: solid #787878 1px;
+    font-size: 1.2em;
+    font-family: Arial;
+    color: #787878;
+}
+#compose input {
+    width: 400px;
+    height: 30px;
+}
+#compose textarea {
+    width: 400px;
+    height: 250px;
+}
+#compose #compose-controls .google-button{
+    float: right;
+}
+#compose #data-receiver {
+    width: 300px;
+}
+#compose #data-receiver .prof {
+    display: inline;
+    margin-right: 10px;
+    border: 1px solid #787878;
+    border-radius: 4px;
+    height: 30px;
+    padding: 5px;
+    width: auto;
+    margin-bottom: 10px;
 }
