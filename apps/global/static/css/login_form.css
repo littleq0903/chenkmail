@@ -4,12 +4,17 @@ body{
 }
 
 #login_form {
+    
     margin: auto;
-    margin-top: 200px;
-    width: 400px;
+    margin-top: 150px;
+    width: 500px;
     padding: 10px;
     border-radius: 4px;
     background-color: white;
+    background-image: url('/static/img/logo.gif');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 200px;
 }
 #login_form input {
     border: 1px solid #787878;

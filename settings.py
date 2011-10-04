@@ -159,10 +159,12 @@ LOGGING = {
     }
 }
 
-# SMTP server settings
-EMAIL_HOST = 'mail.cs.nccu.edu.tw'
-EMAIL_PORT = '25'
-EMAIL_SUBJECT_PREFIX = '[ChenkMail]'
 
 
 LOGIN_URL = '/mail/login?next=/mail'
+
+
+try:
+    from settings_local import *
+except:
+    pass
