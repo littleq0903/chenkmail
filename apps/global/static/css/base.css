@@ -42,10 +42,11 @@ header #header_right > * {
 }
 #content #namelist .namelist ul{
     list-style-type: none;
+
 }
 #content .namelist ul li {
     display: inline;
-    margin-bottom: 5px;
+    margin: auto;
     padding: 0px;
 }
 #content .namelist ul li.selected > a {
