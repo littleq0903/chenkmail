@@ -3,7 +3,6 @@
 <head>
  <meta charset="UTF-8">
  <title>Chenk Mail</title>
- <script src="https://www.google.com/jsapi" type="text/javascript"></script>
  <script src="/static/lib/jquery-ui-1.8.16.custom/js/jquery-1.6.2.min.js" type="text/javascript"></script>
  <script src="/static/lib/jquery-ui-1.8.16.custom/js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
  <script src="/static/lib/closure-library/closure/goog/base.js" type="text/javascript"></script>
@@ -14,29 +13,68 @@
  <link rel="stylesheet" href="/static/css/base.css" />
 
  <script type="text/javascript">
-    var email_data = [];
+     var test;
+
+
+
     $(function(){
             // tabs setup
             $("#namelist").tabs();
             
             $("li.profs").click(function(){
                     if ($(this).hasClass("selected")){
+                        $(this).removeClass("selected");
 
                     } else {
-                        email_data.push($(this).attr('email'));
                         $(this).addClass("selected");
                     }
                 });
 
+            function all_choose (status) {
+                var target = $("#content .namelist ul li");
+                if (status == 0) {
+                    target.removeClass("selected");
+                    } else {
+                        target.addClass("selected");
+                    }
+            }
+
+            $("#all_select").click(function(){
+                    all_choose(1);   
+                });
+
+            $("#all_unselect").click(function(){
+                        all_choose(0);
+                    });
+
             $('#id_reset').click(function(){
                     $("input,textarea").val("");
+                    $("#content .namelist ul li").removeClass("selected");
                 });
 
             $('#id_submit').click(function(){
                 $(this).attr('disabled', 'true'); 
                 $(this)[0].inner_HTML = 'Handling';
 
-                var receivers = email_data.join(',');
+                email_data = $("#content .namelist ul li.selected").map(function(index, prof){
+                    return $(prof).attr("email"); 
+                });
+
+                error_msg = [];
+                if (email_data.length == 0) {
+                    error_msg.push("You haven't choose anybody as recipients");
+                }
+
+                if ( $("#data-topic").val() == "" ) {
+                    error_msg.push("You haven't enter subject.");
+                }
+                
+                if (error_msg.length > 0) {
+                   alert(error_msg.join("\n")); 
+                   return false;
+                }
+
+                var receivers = email_data.toArray().join(',');
                 var topic = $("#data-topic").val();
                 var content = $("#data-content").val();
 
@@ -61,6 +99,9 @@
                     });
 
                 });
+
+
+            $("#data-topic").focus();
     });
 
  </script>
@@ -93,6 +134,10 @@
                         </li>
                         {% endfor %}
                     </ul>
+                </div>
+                <div id="list-functions">
+                    <a id="all_select" class="google-button google-left">全選</a>
+                    <a id="all_unselect" class="google-button google-right">全不選</a>
                 </div>
             </div>
         </div>

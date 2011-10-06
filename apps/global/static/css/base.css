@@ -52,6 +52,7 @@ header #header_right > * {
 #content .namelist ul li.selected > a {
     background: rgba(0,0,255,0.8);
     color: white;
+    text-shadow: none;
 }
 
 #compose {
