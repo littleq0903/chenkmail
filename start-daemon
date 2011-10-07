@@ -1,0 +1,31 @@
+#!/bin/sh
+# start-daemon.sh
+# author: colin.su@geniecapital.com.tw <LittleQ>
+# A program which is use to restart server in daemon mode.
+
+PORT=5678
+
+FCGI_PID=`netstat -ntpl 2> /dev/null|grep ":$PORT "|awk '{ print $7 }'|cut -d/ -f1`
+
+if [ $FCGI_PID -gt 0 ] ; then
+	echo "killing python fcgi daemon: $FCGI_PID ..."
+	kill $FCGI_PID
+else
+	echo "There is no any fcgi daemon in the system."
+fi
+
+#echo "Starting collect static files..."
+#python manage.py collectstatic
+echo "Starting fcgi daemon...."
+python manage.py runfcgi host=127.0.0.1 port=$PORT --settings=settings
+
+NEW_FCGI_PID=`netstat -ntpl 2> /dev/null|grep ":$PORT "|awk '{ print $7 }'|cut -d/ -f1`
+
+if [ "$?" -eq "0" ] ; then
+	echo "Success, the daemon is running on port $PORT and as pid $NEW_FCGI_PID now."
+	exit 0
+else
+	echo "Failed, unknown reason, please check the value of FCGI_PID or PORT in this script." > 2
+	exit 1
+fi
+
